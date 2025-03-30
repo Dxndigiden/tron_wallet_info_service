@@ -6,11 +6,18 @@ from tronpy.providers import AsyncHTTPProvider
 from tronpy.exceptions import AddressNotFound
 
 
-WALLET_ADDRESS = config('WALLET_ADDRESS')
-API_KEY = config('API_KEY')
+# Получаем адрес кошелька и API-ключ из переменных окружения
+WALLET_ADDRESS: str = config('WALLET_ADDRESS')
+API_KEY: str = config('API_KEY')
 
 
-async def get_wallet_info(wallet_address, api_key):
+async def get_wallet_info(wallet_address: str, api_key: str) -> None:
+    """
+    Получает информацию о кошельке, включая баланс, пропускную способность и энергию.
+
+    :param wallet_address: Адрес кошелька в сети Tron.
+    :param api_key: API-ключ для доступа к Tron API.
+    """
     # Создаем экземпляр асинхронного клиента Tron с API-ключом
     client = AsyncTron(AsyncHTTPProvider(api_key=api_key))
 
@@ -21,24 +28,25 @@ async def get_wallet_info(wallet_address, api_key):
         account_resource = await client.get_account_resource(wallet_address)
 
         # Извлекаем баланс
-        balance = account_info.get('balance', 0)  # Баланс в SUN
-        balance_trx = balance / 1_000_000
+        balance: int = account_info.get('balance', 0)  # Баланс в SUN
+        balance_trx: float = balance / 1_000_000
 
         # Извлекаем доступные значения для энергии
-        energy = account_resource.get('EnergyLimit', 0) - account_resource.get('EnergyUsed', 0)
+        energy: int = account_resource.get('EnergyLimit', 0) - account_resource.get('EnergyUsed', 0)
 
         # Вывод информации о балансе, пропускной способности и энергии
         print(f'Баланс TRX для адреса {wallet_address}: {balance_trx:.6f} TRX')
-        print(f'Bandwidth: {bandwidth}' )
-        print(f'Energy: {energy}')
+        print(f'Пропускная способность: {bandwidth}')
+        print(f'Энергия: {energy}')
 
     except AddressNotFound:
         print(f'Адрес {wallet_address} не найден в блокчейне.')
     except Exception as e:
         print(f'Произошла ошибка: {e}')
 
+
 # Пример использования
 if __name__ == '__main__':
-    wallet_address = WALLET_ADDRESS
-    api_key = API_KEY
+    wallet_address: str = WALLET_ADDRESS
+    api_key: str = API_KEY
     asyncio.run(get_wallet_info(wallet_address, api_key))
