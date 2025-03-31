@@ -1,4 +1,3 @@
-from decouple import config
 from pydantic_settings import BaseSettings
 
 
@@ -7,8 +6,8 @@ class Settings(BaseSettings):
 
     app_title: str = 'TronInfo'
     description: str = 'Tron Wallet Info Service'
-    api_key: str = config('API_KEY')  # API ключ для Tron
-    database_url: str = 'sqlite+aiosqlite:///./tronwallet.db'
+    api_key: str  # API ключ для Tron
+    database_url: str = 'sqlite+aiosqlite:///./name.db'
 
     class Config:
         """Конфигурация Pydantic для загрузки переменных окружения."""

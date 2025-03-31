@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-
-from .core.config import settings
-
+from app.core.config import settings
+from app.api.router import router
 
 app = FastAPI(
     title=settings.app_title,
@@ -10,7 +9,5 @@ app = FastAPI(
 )
 
 
-@app.get("/")  # Обработчик для корневого маршрута
-async def read_root() -> dict:
-    """Пробный обработчик маршрута, возвращающий приветственное сообщение."""
-    return {"message": "Welcome to TronInfo API!"}
+# Интеграция роутера
+app.include_router(router)
