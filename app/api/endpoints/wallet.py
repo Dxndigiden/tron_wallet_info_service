@@ -33,13 +33,24 @@ async def get_wallet_info_endpoint(
     try:
         wallet_info = await get_wallet_info(wallet_address)
     except ValueError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        raise HTTPException(
+            status_code=404,
+            detail=f'Кошелек не найден: {str(e)}'
+        )
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail='Кошелька не существует.'
+        )
 
     existing_wallet = await db.execute(
         select(WalletInfo).filter(WalletInfo.address == wallet_address)
     )
     if existing_wallet.scalars().first() is not None:
-        raise HTTPException(status_code=400, detail='Кошелек уже существует.')
+        raise HTTPException(
+            status_code=400,
+            detail='Кошелек уже существует.'
+            )
 
     wallet_record = WalletInfo(
         address=wallet_address,
@@ -76,7 +87,6 @@ async def get_wallets_endpoint(
                 bandwidth=wallet.bandwidth,
                 energy=wallet.energy,
                 created_at=wallet.created_at,
-                last_request_at=wallet.last_request_at,
             )
             for wallet in wallets
         ],

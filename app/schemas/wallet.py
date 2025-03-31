@@ -4,7 +4,14 @@ from datetime import datetime
 
 class WalletRequest(BaseModel):
     '''Запрос на получение информации о кошельке.'''
-    address: str = Field(..., pattern=r'^T[a-zA-Z0-9]{33}$')
+    address: str = Field(
+        ...,
+        pattern=r'^T[a-zA-Z0-9]{33}$',
+        description=(
+            'Адрес кошелька в сети Tron, должен начинаться с '
+            '"T" и содержать 34 символа.'
+        )
+    )
 
 
 class WalletResponse(BaseModel):
@@ -23,7 +30,6 @@ class WalletInfoResponse(BaseModel):
     bandwidth: int
     energy: int
     created_at: datetime
-    last_request_at: datetime
 
 
 class WalletListResponse(BaseModel):

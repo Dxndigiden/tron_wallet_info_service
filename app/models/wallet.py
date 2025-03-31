@@ -16,9 +16,6 @@ class WalletInfo(Base):
     created_at: Mapped[DateTime] = mapped_column(
         DateTime, default=datetime.utcnow
     )
-    last_request_at: Mapped[DateTime] = mapped_column(
-        DateTime, default=datetime.utcnow
-    )
 
     def __repr__(self) -> str:
         return (f'<WalletInfo(address={self.address}, balance={self.balance}, '
