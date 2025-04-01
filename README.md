@@ -80,7 +80,7 @@ uvicorn app.main:app --reload
 
 Вы также можете проверить информацию о кошельке на [Tronscan](https://tronscan.org/#/address/адрес_кошелька), заменив `адрес_кошелька` на фактический адрес.
 
-![Пример ответа](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/tronscan.PNG?token=GHSAT0AAAAAADA7WVPWDBVYVCRPDRXNG4XEZ7MDZHQ)
+![Пример ответа](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/main/img/tronscan.PNG?token=GHSAT0AAAAAADA7WVPWDBVYVCRPDRXNG4XEZ7MDZHQ)
 
 ---
 
