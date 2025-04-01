@@ -1,7 +1,6 @@
 # Используем образ Python 3.10
 FROM python:3.10-slim
 
-
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
@@ -14,6 +13,9 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 # Копируем весь код приложения в контейнер
 COPY . .
+
+# Копируем файл .env в контейнер (если он нужен)
+COPY .env .
 
 # Выполняем миграции базы данных
 RUN alembic upgrade head
