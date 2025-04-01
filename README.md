@@ -70,17 +70,17 @@ uvicorn app.main:app --reload
 
 Для использования этого эндпоинта вам необходимо ввести адрес кошелька в формате, который начинается с "T" и содержит 34 символа.
 
-![Пример запроса](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/request_example.PNG?token=GHSAT0AAAAAADA7WVPX3DHUONATRCQA5RNWZ7MDX7A)
+![Пример запроса](https://ibb.co/VcvGw7bz)
 
 #### Ответ
 
 После успешного выполнения запроса вы получите ответ с информацией о кошельке, включая баланс, bandwidth и energy.
 
-![Пример ответа](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/response_example.PNG?token=GHSAT0AAAAAADA7WVPXUYPLL7JPHNL6LOHEZ7MDYSQ)
+![Пример ответа](https://ibb.co/PbK8y7M)
 
 Вы также можете проверить информацию о кошельке на [Tronscan](https://tronscan.org/#/address/адрес_кошелька), заменив `адрес_кошелька` на фактический адрес.
 
-![Пример ответа](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/main/img/tronscan.PNG?token=GHSAT0AAAAAADA7WVPWDBVYVCRPDRXNG4XEZ7MDZHQ)
+![Пример ответа](https://ibb.co/PzgF92M3)
 
 ---
 
@@ -95,13 +95,13 @@ uvicorn app.main:app --reload
 - `skip`: количество записей, которые нужно пропустить (по умолчанию 0).
 - `limit`: количество записей для возврата (по умолчанию 10).
 
-![Пример запроса](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/pagination_example.PNG?token=GHSAT0AAAAAADA7WVPXEBPCP4UO3EIYZVD2Z7MDWUQ)
+![Пример запроса](https://ibb.co/fYk7rZt9)
 
 #### Ответ
 
 Ответ будет содержать список кошельков, начиная с самых последних записей.
 
-![Пример ответа](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/wallets_response_example.PNG?token=GHSAT0AAAAAADA7WVPW2PBMDJBTKSRQZMOIZ7MDZSQ)
+![Пример ответа](https://ibb.co/dJQ40JjT)
 
 
 ## Как запускать тесты
