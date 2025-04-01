@@ -115,3 +115,4 @@ pytest
 ## Автор
 
 [Денис Смирнов](https://github.com/dxndigiden)
+
