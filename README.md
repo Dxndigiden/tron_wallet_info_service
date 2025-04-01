@@ -31,13 +31,13 @@ git clone git@github.com:dxndigiden/tron_wallet_info_service.git
 cd tron_wallet_info_service
 python -m venv venv
 source venv/bin/activate  # для Linux/Mac
-venv\Scripts\activate  # для Windows
+source venv\Scripts\activate  # для Windows
 ```
 
 2. Установить зависимости:
 
 ```
-pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
