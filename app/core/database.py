@@ -23,13 +23,10 @@ class PreBase:
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
 
 
-# Базовый класс для SQLAlchemy
 Base = declarative_base(cls=PreBase)
 
-# Создание асинхронного движка базы данных
 engine = create_async_engine(settings.database_url, echo=True)
 
-# Создание локальной асинхронной сессии
 AsyncSessionLocal = async_sessionmaker(
     engine,
     class_=AsyncSession,

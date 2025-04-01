@@ -9,5 +9,4 @@ app = FastAPI(
 )
 
 
-# Интеграция роутера
 app.include_router(router)

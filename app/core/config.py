@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     app_title: str = 'TronInfo'
     description: str = 'Tron Wallet Info Service'
-    api_key: str  # API ключ для Tron
+    api_key: str  # API ключ для TronGrid
     database_url: str = 'sqlite+aiosqlite:///./name.db'
 
     class Config:

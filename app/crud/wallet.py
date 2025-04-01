@@ -20,7 +20,7 @@ async def get_wallets(
     '''Получает список кошельков с пагинацией.'''
     result = await db.execute(
         select(WalletInfo)
-        .order_by(WalletInfo.created_at.asc())
+        .order_by(WalletInfo.created_at.desc())
         .offset(skip)
         .limit(limit)
     )

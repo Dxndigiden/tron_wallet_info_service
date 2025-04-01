@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
@@ -18,13 +20,13 @@ router = APIRouter()
 
 @router.get('/')
 async def read_root() -> dict[str, str]:
-    '''Пробный обработчик маршрута, возвращающий приветственное сообщение.'''
+    '''Тестовая ручка для базовой страницы.'''
     return {'message': 'Welcome to TronInfo API!'}
 
 
 @router.post('/wallet/info', response_model=WalletResponse)
 async def get_wallet_info_endpoint(
-    wallet_request: WalletRequest,
+    wallet_request: Annotated[WalletRequest, Depends()],
     db: AsyncSession = Depends(get_db)
 ) -> WalletResponse:
     '''Получает информацию о кошельке и сохраняет её в БД.'''
