@@ -95,7 +95,7 @@ uvicorn app.main:app --reload
 - `skip`: количество записей, которые нужно пропустить (по умолчанию 0).
 - `limit`: количество записей для возврата (по умолчанию 10).
 
-![Пример запроса](img/pagination_example.png)
+![Пример запроса](https://raw.githubusercontent.com/Dxndigiden/tron_wallet_info_service/refs/heads/dev/img/pagination_example.PNG?token=GHSAT0AAAAAADA7WVPXEBPCP4UO3EIYZVD2Z7MDWUQ)
 
 #### Ответ
 
