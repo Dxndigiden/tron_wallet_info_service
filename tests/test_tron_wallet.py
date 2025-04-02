@@ -78,7 +78,7 @@ async def test_wallet_info(
 
     invalid_address = 'INVALID_ADDRESS'
     response = client.post(
-        '/api/wallet/info',
+        '/api/wallet/info?address=' + invalid_address,
         json={'address': invalid_address}
     )
 
