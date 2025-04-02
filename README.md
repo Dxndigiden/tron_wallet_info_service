@@ -63,6 +63,20 @@ uvicorn app.main:app --reload
 
 Update: Также приложение доступно в [интернете](http://87.228.76.66/api/)
 
+### Установка через Docker
+
+Создание образа (коробки) с приложением
+
+```
+docker build . --tag fastapi_app
+```
+
+Запуск образа в контейнере
+
+```
+docker run -p 80:80 fastapi_app
+
+```
 
 ## Использование Swagger
 
